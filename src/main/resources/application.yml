@@ -3,13 +3,17 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/base-information
-    username: postgres
-    password: Amir12345
-    driver-class-name: org.postgresql.Driver
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
+    url: jdbc:oracle:thin:@127.0.0.1:1521:Xe
+    username: sport
+    password: sport
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      max-lifetime: 90000
+      idle-timeout: 60000
+      pool-name: poolSetupHIK
+      connection-timeout: 30000
   jpa:
     hibernate:
       ddl-auto: update
@@ -17,8 +21,11 @@ spring:
     properties:
       hibernate:
         format_sql: true
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: oracle
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 logging:
   level:
     root: info
