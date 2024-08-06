@@ -1,0 +1,25 @@
+### save
+POST http://localhost:1000/api/v1/base-info/save
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "data": {
+    "title": "sample base info title",
+    "code": "1",
+    "icon": "sample icon"
+  }
+}
+
+### find all
+POST http://localhost:1000/api/v1/base-info/find-all
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "inputFilter": {
+    "pageNumber": 0,
+    "pageSize": 10,
+    "orderBy": ["id"]
+  }
+}
